@@ -23,6 +23,16 @@ const routes = [
     path: '/edit/:id',
     name: 'edit',
     component: () => import('../components/UserEdit')
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: () => import('../components/Register')
+  },
+  {
+    path: '/dashboard',
+    name: 'dashboard',
+    component: () => import('../components/Dashboard')
   }
 ]
 
