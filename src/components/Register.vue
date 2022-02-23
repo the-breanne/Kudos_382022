@@ -18,24 +18,24 @@
 </template>
 
 <script>
-        data() { 
-        return { 
-            email: '', 
-            password: '', 
-            } 
+        data() {
+            return { 
+                email: '', 
+                password: '', 
+            }
         },
         methods: {
-        register() {
-            firebase
-            .auth()
-            .createUserWithEmailAndPassword(this.email, this.password)
-            then(() => {
-                alert('Successfully registered! Please login.')
-                this.$router.push('/')
-            })
+            register() {
+                firebase
+                .auth()
+                .createUserWithEmailAndPassword(this.email, this.password)
+                then(() => {
+                    alert('Successfully registered! Please login.');
+                    this.$router.push('/')
+                })
             .catch(error => {
-                alert(error.message)
-            })
+                alert(error.message);
+            });
         },
         },
     }
