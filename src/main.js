@@ -14,6 +14,12 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 
+const app = createApp(App);
+
+app.use(router);
+
+app.mount("#app");
+
 Vue.config.productionTip = false
 
 new Vue({
