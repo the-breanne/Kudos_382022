@@ -22,7 +22,7 @@
         return { 
             email: '', 
             password: '', 
-        }; 
+        } 
         },
         methods: {
         register() {
@@ -30,12 +30,12 @@
             .auth()
             .createUserWithEmailAndPassword(this.email, this.password)
             then(() => {
-                alert('Successfully registered! Please login.');
-                this.$router.push('/');
+                alert('Successfully registered! Please login.')
+                this.$router.push('/')
             })
             .catch(error => {
-                alert(error.message);
-            });
+                alert(error.message)
+            })
         },
         },
     }
