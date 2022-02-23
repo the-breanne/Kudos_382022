@@ -19,8 +19,6 @@
 
 <script>
 
-    import { db } from '../firebaseDb';
-
     export default {
         data() { 
         return { 
@@ -30,15 +28,16 @@
         },
         methods: {
         register() {
-            .auth()
-            .createUserWithEmailAndPassword(this.email, this.password)
-            then(() => {
-                alert('Successfully registered! Please login.');
-                this.$router.push('/');
-            })
-            .catch(error => {
-                alert(error.message);
-            });
+            db
+                .auth()
+                .createUserWithEmailAndPassword(this.email, this.password)
+                then(() => {
+                    alert('Successfully registered! Please login.');
+                    this.$router.push('/');
+                })
+                .catch(error => {
+                    alert(error.message);
+                });
         },
         }
     }
