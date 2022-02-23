@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import { db } from '../firebaseDb';
-
 data() { 
   return { 
     email: '', 
