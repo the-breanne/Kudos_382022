@@ -26,19 +26,19 @@
             password: '', 
         }; 
         },
-        methods: {
+    methods: {
         register() {
-            db
-                .auth()
-                .createUserWithEmailAndPassword(this.email, this.password)
-                then(() => {
-                    alert('Successfully registered! Please login.');
-                    this.$router.push('/');
-                })
-                .catch(error => {
-                    alert(error.message);
-                });
+            firebase
+            .auth()
+            .createUserWithEmailAndPassword(this.email, this.password)
+            then(() => {
+                alert('Successfully registered! Please login.');
+                this.$router.push('/');
+            })
+            .catch(error => {
+                alert(error.message);
+            });
         },
-        }
+},
     }
 </script>
