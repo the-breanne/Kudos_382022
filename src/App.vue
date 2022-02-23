@@ -1,9 +1,6 @@
 <template>
   <div>
 
-      input {   
-      margin-right: 20px; 
-    }
     <nav class="navbar navbar-dark bg-dark justify-content-between flex-nowrap flex-row">
       <div class="container">
         <a class="navbar-brand float-left">Kudos</a>
