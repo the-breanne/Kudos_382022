@@ -22,7 +22,7 @@
             return { 
                 email: '', 
                 password: '', 
-            }
+            };
         },
         methods: {
             register() {
