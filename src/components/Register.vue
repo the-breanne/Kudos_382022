@@ -1,28 +1,68 @@
 <template>
-  <h1>Create an Account</h1>
-  <p><input type="text" placeholder="Email" v-model="email" /></p>
-  <p><input type="password" placeholder="Password" v-model="password" /></p>
-  <p><button @click="register">Submit</button></p>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-8 mt-5">
+            <form @submit.prevent="onSubmit">
+                <div class="form-group mb-3">
+                    <label><strong>Name</strong></label>
+                    <input type="text" class="form-control form-control-lg" v-model="user.name" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label><strong>Email</strong></label>
+                    <input type="email" class="form-control form-control-lg" v-model="user.email" />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label><strong>Password</strong></label>
+                    <input type="password" class="form-control form-control-lg" v-model="user.password" />
+                </div>
+
+                <div class="d-grid">
+                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Register User"/>
+                </div>
+            </form>
+        </div>
+    </div>
 </template>
 
-<script setup>
-  import { ref } from 'vue'
-  import firebase from 'firebase'
-  import { useRouter } from 'vue-router' // import router
-  const email = ref('')
-  const password = ref('')
-  const router = useRouter() // get a reference to our vue router
-  const register = () => {
-    firebase
-      .auth() // get the auth api
-      .createUserWithEmailAndPassword(email.value, password.value) // need .value because ref()
-      .then((data) => {
-        console.log('Successfully registered!');
-        router.push('/feed') // redirect to the feed
+<script>
+import { db } from '../firebaseDb';
+
+export default {
+  data() {
+    return {
+      user: {
+        name: '',
+        email: '',
+        password: ''
+      }
+    };
+  },
+  methods: {
+    onSubmit() {
+      db.auth()
+      .createUserWithEmailAndPassword(this.user.email, this.user.password)
+      .then((response) => {
+          response.user.updateProfile({
+            displayName: this.user.name
+          })
+          .then(() => {
+                alert('User successfully registered!')
+                this.user = {
+                    name: '',
+                    email: '',
+                    password: ''
+                }
+          });
       })
-      .catch(error => {
-        console.log(error.code)
-        alert(error.message);
+      .catch((err) => {
+         console.log(err);
       });
+    }
   }
+};
 </script>
+
+
+
+
