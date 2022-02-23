@@ -19,6 +19,7 @@
 
 <script>
 
+    import { db } from '../firebaseDb';
 
     export default {
         data() { 
@@ -29,7 +30,6 @@
         },
         methods: {
         register() {
-            firebaseApp
             .auth()
             .createUserWithEmailAndPassword(this.email, this.password)
             then(() => {
