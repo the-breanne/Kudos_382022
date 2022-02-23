@@ -26,19 +26,6 @@
             password: '', 
         }; 
         },
-    methods: {
-        register() {
-            firebase
-            .auth()
-            .createUserWithEmailAndPassword(this.email, this.password)
-            then(() => {
-                alert('Successfully registered! Please login.');
-                this.$router.push('/');
-            })
-            .catch(error => {
-                alert(error.message);
-            });
-        },
-},
+
     }
 </script>
