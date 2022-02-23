@@ -17,12 +17,7 @@
           <li class="nav-item">
             <router-link class="nav-link pr-3" to="/register">Register</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link pr-3" to="/dashboard">Dashboard</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link pr-3" to="/logout">Logout</router-link>
-          </li>
+
           
 
         </ul>
