@@ -1,51 +1,46 @@
 <template>
-    <div>   
-    <h1>{{ msg }}</h1>
-  <form @submit.prevent="login">     
-    <h2>Login</h2>     
-    <input       
-      type="email"       
-      placeholder="Email address..."       
-      v-model="email"     
-    />     
-    <input       
-      type="password"       
-      placeholder="password..."       
-      v-model="password"     
-    />     
-    <button type="submit">
-       Login
-    </button>   
-  </form> 
-</div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-8 mt-5">
+            <form @submit.prevent="onSubmit">
+                <div class="form-group mb-3">
+                    <label><strong>Email</strong></label>
+                    <input type="email" class="form-control form-control-lg" v-model="user.email" />
+                </div>
 
+                <div class="form-group mb-3">
+                    <label><strong>Password</strong></label>
+                    <input type="password" class="form-control form-control-lg" v-model="user.password" />
+                </div>
+
+                <div class="d-grid">
+                    <input type="submit" class="btn btn-primary btn-lg btn-block" value="Login"/>
+                </div>
+            </form>
+        </div>
+    </div>
 </template>
 
 <script>
+import { db } from '../firebaseDb';
 export default {
-  name: 'HelloWorld',
-  data () {
+  data() {
     return {
-      msg: 'Welcome to Kudos'
+      user: {
+        email: '',
+        password: ''
+      }
+    };
+  },
+  methods: {
+    onSubmit() {
+      db.auth()
+      .signInWithEmailAndPassword(this.user.email, this.user.password).then(() => {
+        this.$router.push('/dashboard')
+       })
+      .catch((err) => {
+         console.log(err);
+      });
     }
   }
-}
+};
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
