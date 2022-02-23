@@ -18,7 +18,6 @@
 </template>
 
 <script>
-    import { db } from '../firebaseDb';
 
     export default {
         data() { 
