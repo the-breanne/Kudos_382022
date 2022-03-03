@@ -38,6 +38,21 @@ const routes = [
     path: '/meeting',
     name: 'meeting',
     component: () => import('../components/Meeting')
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: () => import('../components/Signup')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../components/Login')
+  },
+  {
+    path: '/forgot-password',
+    name: 'forgot-password',
+    component: () => import('../components/ForgotPassword')
   }
 ]
 
