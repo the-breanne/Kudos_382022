@@ -5,7 +5,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
     component: () => import('../components/Home')
   },
@@ -45,7 +45,7 @@ const routes = [
     component: () => import('../components/Signup')
   },
   {
-    path: '/login',
+    path: '/',
     name: 'login',
     component: () => import('../components/Login')
   },
