@@ -6,7 +6,7 @@
         <a class="navbar-brand float-left">Kudos</a>
         <ul class="nav navbar-nav flex-row float-right">
           <li class="nav-item">
-            <router-link class="nav-link pr-3" to="/">Home</router-link>
+            <router-link class="nav-link pr-3" to="/home">Home</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link pr-3" to="/add">Add Task</router-link>
@@ -19,7 +19,7 @@
           </li>
 
           <li class="nav-item">
-            <router-link class="nav-link pr-3" to="/login">Sign In</router-link>
+            <router-link class="nav-link pr-3" to="/">Sign In</router-link>
           </li>
           <li class="nav-item">
             <router-link class="nav-link pr-3" to="/signup">Sign Up</router-link>
