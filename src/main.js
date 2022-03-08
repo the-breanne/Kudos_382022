@@ -9,13 +9,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 Vue.config.productionTip = false
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCunPP4q16BqPnOdhBEWRn0QatJWMVjmKs",
-  authDomain: "task-list-522b3.firebaseapp.com",
-  projectId: "task-list-522b3",
-  storageBucket: "task-list-522b3.appspot.com",
-  messagingSenderId: "332540505517",
-  appId: "1:332540505517:web:c794faaffb91cf22bdc524"
-}
+  apiKey: "AIzaSyBFfE7ni7riLeuf5C_SARf2HA0Eias9Vi0",
+  authDomain: "task2-ce24d.firebaseapp.com",
+  projectId: "task2-ce24d",
+  storageBucket: "task2-ce24d.appspot.com",
+  messagingSenderId: "385875807112",
+  appId: "1:385875807112:web:90c596b6d10fe860c6c83d"
+};
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
