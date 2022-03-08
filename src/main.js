@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import VueFire from 'vuefire'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'bootstrap/dist/css/bootstrap.min.css'
