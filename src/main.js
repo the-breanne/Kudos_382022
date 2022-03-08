@@ -1,6 +1,9 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from './App'
 import router from './router'
+import VueFire from 'vuefire'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import firebase from 'firebase'
@@ -8,15 +11,17 @@ import firebase from 'firebase'
 Vue.config.productionTip = false
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBgAo_SyQnXriyIZ_VfKcNl3ume6_2uf0Y",
-  authDomain: "kudos-3332a.firebaseapp.com",
-  projectId: "kudos-3332a",
-  storageBucket: "kudos-3332a.appspot.com",
-  messagingSenderId: "8210428645",
-  appId: "1:8210428645:web:7cfa5895b24fed8f631a0c"
-};
+  apiKey: "AIzaSyCunPP4q16BqPnOdhBEWRn0QatJWMVjmKs",
+  authDomain: "task-list-522b3.firebaseapp.com",
+  projectId: "task-list-522b3",
+  storageBucket: "task-list-522b3.appspot.com",
+  messagingSenderId: "332540505517",
+  appId: "1:332540505517:web:c794faaffb91cf22bdc524"
+}
 
-firebase.initializeApp(firebaseConfig);
+const firebaseApp = firebase.initializeApp(firebaseConfig);
+
+export const db = firebaseApp.firestore();
 
 new Vue({
   router,

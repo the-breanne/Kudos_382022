@@ -1,46 +1,44 @@
 <template>
-    <div class="vue-tempalte">
-        <form @submit.prevent="userLogin">
-            <h3>Sign In</h3>
-            <div class="form-group">
-                <label>Email address</label>
-                <input type="email" class="form-control form-control-lg" v-model="user.email" />
-            </div>
-            <div class="form-group">
-                <label>Password</label>
-                <input type="password" class="form-control form-control-lg" v-model="user.password" />
-            </div>
-            <button type="submit" class="btn btn-dark btn-lg btn-block">Sign In</button>
-            <p class="forgot-password text-right mt-2 mb-4">
-                <router-link to="/forgot-password">Forgot password ?</router-link>
-            </p>
-        </form>
-    </div>
+  <div class="login">
+    <h3>Kudos</h3>
+    <input 
+      type="text" 
+      v-model="email" 
+      placeholder="Email address" 
+      class="input" 
+      required>
+    <br/>
+    <input 
+      type="password" 
+      v-model="password"
+      placeholder="Password" 
+      class="input" 
+      required>
+    <br/>
+    <button v-on:click="login" class="button">Enter</button>
+    <p><router-link to="/signup">
+      New Here? Create a new account
+    </router-link></p>
+  </div>
 </template>
-
 <script>
-import firebase from "firebase";
-export default {
-  data() {
-    return {
-      user: {   
+  import firebase from 'firebase'
+  export default {
+    name: 'login',
+    data: function() {
+      return {
         email: '',
         password: ''
       }
-    };
-  },
-  methods: {
-    userLogin() {
-        firebase
-        .auth()
-        .signInWithEmailAndPassword(this.user.email, this.user.password)
-        .then(() => {
-            this.$router.push('/home')
+    },
+    methods: {
+      login () {
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password).then((user) => {
+          this.$router.replace('/add')
+        }).catch((err) => {
+          alert(err.message)
         })
-        .catch((error) => {
-          alert(error.message);
-        });
+      }
     }
   }
-};
 </script>
