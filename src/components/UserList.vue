@@ -28,7 +28,8 @@
 </template>
 
 <script>
-    import { db } from '../firebaseDb';
+    import firebase from 'firebase'
+    import { db } from '../main'
 
     
     export default {
